@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { FuelRate } from './fuelRate';
 import { FuelSavings } from './fuelSavings';
 import { Quantity } from './quantity';

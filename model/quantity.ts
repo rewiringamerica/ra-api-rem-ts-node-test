@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 /**
 * A class to represent a quantity, which is a value with units.  Attributes ----------     value (float): The numerical value.     units (str): The units.

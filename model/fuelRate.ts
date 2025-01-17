@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 /**
 * Represents a rate.  It is a `Quantity` with the addition of a rate type.  Attributes ----------     rate_type (str): The type of rate. Values can be \"fixed\" or \"volumetric\".

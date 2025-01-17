@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 
 /**
 * Heating fuels supported by the API.  Note that we do not currently support \"Other Fuel\" or \"None\".

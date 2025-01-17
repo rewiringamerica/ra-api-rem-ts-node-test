@@ -10,7 +10,6 @@
  * Do not edit the class manually.
  */
 
-import { RequestFile } from './models';
 import { BuildingProfile } from './buildingProfile';
 import { HeatingFuel } from './heatingFuel';
 import { SupportedUpgrade } from './supportedUpgrade';
