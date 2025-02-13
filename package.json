@@ -1,10 +1,10 @@
 {
-    "name": "rem",
-    "version": "0.4.1",
-    "description": "NodeJS client for rem",
+    "name": "@rewiringamerica/rem",
+    "version": "0.4.2",
+    "description": "NodeJS client for @rewiringamerica/rem",
     "repository": {
         "type": "git",
-        "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+        "url": "https://github.com/rewiringamerica/ra-api-rem-ts-node-test.git"
     },
     "main": "dist/api.js",
     "types": "dist/api.d.ts",
