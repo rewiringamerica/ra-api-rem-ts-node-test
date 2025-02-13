@@ -1,0 +1,8 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": ["unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "max-len": ["warn", { "code": 120 }]
+  }
+}
