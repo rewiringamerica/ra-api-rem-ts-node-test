@@ -15,7 +15,6 @@ import localVarRequest from 'request';
 import http from 'http';
 
 
-import { HTTPValidationError } from '../model/hTTPValidationError';
 import { HeatingFuel } from '../model/heatingFuel';
 import { RemProfileRequest } from '../model/remProfileRequest';
 import { Savings } from '../model/savings';

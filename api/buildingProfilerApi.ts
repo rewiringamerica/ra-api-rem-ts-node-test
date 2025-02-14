@@ -16,7 +16,6 @@ import http from 'http';
 
 
 import { BuildingProfile } from '../model/buildingProfile';
-import { HTTPValidationError } from '../model/hTTPValidationError';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBearerAuth } from '../model/models';
