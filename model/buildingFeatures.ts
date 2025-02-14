@@ -101,7 +101,11 @@ export class BuildingFeatures {
 
   static discriminator: string | undefined = undefined;
 
-  static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
     {
       name: "geometryFloorArea",
       baseName: "geometry_floor_area",

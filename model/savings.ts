@@ -33,7 +33,11 @@ export class Savings {
 
   static discriminator: string | undefined = undefined;
 
-  static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
     {
       name: "fuelResults",
       baseName: "fuel_results",

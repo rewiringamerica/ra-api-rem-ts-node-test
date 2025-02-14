@@ -15,7 +15,12 @@ import http from "http";
 
 import { BuildingProfile } from "../model/buildingProfile";
 
-import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from "../model/models";
+import {
+  ObjectSerializer,
+  Authentication,
+  VoidAuth,
+  Interceptor,
+} from "../model/models";
 import { HttpBearerAuth } from "../model/models";
 
 import { HttpError } from "./apis";
@@ -41,7 +46,11 @@ export class BuildingProfilerApi {
   protected interceptors: Interceptor[] = [];
 
   constructor(basePath?: string);
-  constructor(basePathOrUsername: string, password?: string, basePath?: string) {
+  constructor(
+    basePathOrUsername: string,
+    password?: string,
+    basePath?: string,
+  ) {
     if (password) {
       if (basePath) {
         this.basePath = basePath;
@@ -78,7 +87,8 @@ export class BuildingProfilerApi {
   }
 
   public setApiKey(key: BuildingProfilerApiApiKeys, value: string) {
-    (this.authentications as any)[BuildingProfilerApiApiKeys[key]].apiKey = value;
+    (this.authentications as any)[BuildingProfilerApiApiKeys[key]].apiKey =
+      value;
   }
 
   set accessToken(accessToken: string | (() => string)) {
@@ -100,7 +110,10 @@ export class BuildingProfilerApi {
   ): Promise<{ response: http.IncomingMessage; body: BuildingProfile }> {
     const localVarPath = this.basePath + "/api/v1/building_profiler/home";
     let localVarQueryParameters: any = {};
-    let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+    let localVarHeaderParams: any = (<any>Object).assign(
+      {},
+      this._defaultHeaders,
+    );
     const produces = ["application/json"];
     // give precedence to 'application/json'
     if (produces.indexOf("application/json") >= 0) {
@@ -112,11 +125,16 @@ export class BuildingProfilerApi {
 
     // verify required parameter 'address' is not null or undefined
     if (address === null || address === undefined) {
-      throw new Error("Required parameter address was null or undefined when calling getHomeProfile.");
+      throw new Error(
+        "Required parameter address was null or undefined when calling getHomeProfile.",
+      );
     }
 
     if (address !== undefined) {
-      localVarQueryParameters["address"] = ObjectSerializer.serialize(address, "string");
+      localVarQueryParameters["address"] = ObjectSerializer.serialize(
+        address,
+        "string",
+      );
     }
 
     (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -144,7 +162,9 @@ export class BuildingProfilerApi {
 
     let interceptorPromise = authenticationPromise;
     for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+      interceptorPromise = interceptorPromise.then(() =>
+        interceptor(localVarRequestOptions),
+      );
     }
 
     return interceptorPromise.then(() => {
@@ -155,12 +175,19 @@ export class BuildingProfilerApi {
           localVarRequestOptions.form = localVarFormParams;
         }
       }
-      return new Promise<{ response: http.IncomingMessage; body: BuildingProfile }>((resolve, reject) => {
+      return new Promise<{
+        response: http.IncomingMessage;
+        body: BuildingProfile;
+      }>((resolve, reject) => {
         localVarRequest(localVarRequestOptions, (error, response, body) => {
           if (error) {
             reject(error);
           } else {
-            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+            if (
+              response.statusCode &&
+              response.statusCode >= 200 &&
+              response.statusCode <= 299
+            ) {
               body = ObjectSerializer.deserialize(body, "BuildingProfile");
               resolve({ response: response, body: body });
             } else {

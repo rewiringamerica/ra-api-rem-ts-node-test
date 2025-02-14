@@ -13,7 +13,11 @@
 export class ValidationErrorLocInner {
   static discriminator: string | undefined = undefined;
 
-  static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [];
 
   static getAttributeTypeMap() {
     return ValidationErrorLocInner.attributeTypeMap;
