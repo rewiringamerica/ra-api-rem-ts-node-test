@@ -10,34 +10,38 @@
  * Do not edit the class manually.
  */
 
-import { ValidationErrorLocInner } from './validationErrorLocInner';
+import { ValidationErrorLocInner } from "./validationErrorLocInner";
 
 export class ValidationError {
-    'loc': Array<ValidationErrorLocInner>;
-    'msg': string;
-    'type': string;
+  "loc": Array<ValidationErrorLocInner>;
+  "msg": string;
+  "type": string;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "loc",
-            "baseName": "loc",
-            "type": "Array<ValidationErrorLocInner>"
-        },
-        {
-            "name": "msg",
-            "baseName": "msg",
-            "type": "string"
-        },
-        {
-            "name": "type",
-            "baseName": "type",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "loc",
+      baseName: "loc",
+      type: "Array<ValidationErrorLocInner>",
+    },
+    {
+      name: "msg",
+      baseName: "msg",
+      type: "string",
+    },
+    {
+      name: "type",
+      baseName: "type",
+      type: "string",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return ValidationError.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return ValidationError.attributeTypeMap;
+  }
 }
-

@@ -10,16 +10,21 @@
  * Do not edit the class manually.
  */
 
-
 /**
-* Upgrades accepted by the REM API.
-*/
+ * Upgrades accepted by the REM API.
+ */
 export enum SupportedUpgrade {
-    Baseline = <any> 'baseline',
-    WeatherizationInsulationAirDuctSealing = <any> 'weatherization__insulation_air_duct_sealing',
-    HvacHeatPumpSeer15Hspf9 = <any> 'hvac__heat_pump_seer15_hspf9',
-    HvacHeatPumpSeer24Hspf13 = <any> 'hvac__heat_pump_seer24_hspf13',
-    CombinationAllElectricHvacSeer24Hspf13Weatherization = <any> 'combination__all_electric__hvac_seer24_hspf13__weatherization',
-    HvacHeatPumpSeer18Hspf10 = <any> 'hvac__heat_pump_seer18_hspf10',
-    CombinationHvacSeer18Hspf10Weatherization = <any> 'combination__hvac_seer18_hspf10__weatherization'
+  Baseline = <any>"baseline",
+  WeatherizationInsulationAirDuctSealing = <any>(
+    "weatherization__insulation_air_duct_sealing"
+  ),
+  HvacHeatPumpSeer15Hspf9 = <any>"hvac__heat_pump_seer15_hspf9",
+  HvacHeatPumpSeer24Hspf13 = <any>"hvac__heat_pump_seer24_hspf13",
+  CombinationAllElectricHvacSeer24Hspf13Weatherization = <any>(
+    "combination__all_electric__hvac_seer24_hspf13__weatherization"
+  ),
+  HvacHeatPumpSeer18Hspf10 = <any>"hvac__heat_pump_seer18_hspf10",
+  CombinationHvacSeer18Hspf10Weatherization = <any>(
+    "combination__hvac_seer18_hspf10__weatherization"
+  ),
 }

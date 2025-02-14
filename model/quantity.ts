@@ -10,36 +10,39 @@
  * Do not edit the class manually.
  */
 
-
 /**
-* A class to represent a quantity, which is a value with a unit.
-*/
+ * A class to represent a quantity, which is a value with a unit.
+ */
 export class Quantity {
-    /**
-    * The numerical value.
-    */
-    'value'?: number = 0.0;
-    /**
-    * The unit.
-    */
-    'unit': string;
+  /**
+   * The numerical value.
+   */
+  "value"?: number = 0.0;
+  /**
+   * The unit.
+   */
+  "unit": string;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "value",
-            "baseName": "value",
-            "type": "number"
-        },
-        {
-            "name": "unit",
-            "baseName": "unit",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "value",
+      baseName: "value",
+      type: "number",
+    },
+    {
+      name: "unit",
+      baseName: "unit",
+      type: "string",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return Quantity.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return Quantity.attributeTypeMap;
+  }
 }
-

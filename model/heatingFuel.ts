@@ -10,13 +10,12 @@
  * Do not edit the class manually.
  */
 
-
 /**
-* Heating fuels supported by the API.  Note that we do not currently support \"Other Fuel\" or \"None\".
-*/
+ * Heating fuels supported by the API.  Note that we do not currently support \"Other Fuel\" or \"None\".
+ */
 export enum HeatingFuel {
-    Electricity = <any> 'electricity',
-    FuelOil = <any> 'fuel_oil',
-    NaturalGas = <any> 'natural_gas',
-    Propane = <any> 'propane'
+  Electricity = <any>"electricity",
+  FuelOil = <any>"fuel_oil",
+  NaturalGas = <any>"natural_gas",
+  Propane = <any>"propane",
 }

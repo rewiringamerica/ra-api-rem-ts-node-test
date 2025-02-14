@@ -10,50 +10,54 @@
  * Do not edit the class manually.
  */
 
-import { BuildingProfile } from './buildingProfile';
-import { HeatingFuel } from './heatingFuel';
-import { SupportedUpgrade } from './supportedUpgrade';
+import { BuildingProfile } from "./buildingProfile";
+import { HeatingFuel } from "./heatingFuel";
+import { SupportedUpgrade } from "./supportedUpgrade";
 
 /**
-* A class representing the request body used to retrieve a building\'s profile.
-*/
+ * A class representing the request body used to retrieve a building\'s profile.
+ */
 export class RemProfileRequest {
-    /**
-    * The upgrade whose effects we want to analyze.
-    */
-    'upgrade': SupportedUpgrade;
-    /**
-    * The heating fuel used in the home before the upgrade.
-    */
-    'heatingFuel': HeatingFuel;
-    /**
-    * The known geographic features and building characteristics for a given residence.
-    */
-    'buildingProfile': BuildingProfile;
+  /**
+   * The upgrade whose effects we want to analyze.
+   */
+  "upgrade": SupportedUpgrade;
+  /**
+   * The heating fuel used in the home before the upgrade.
+   */
+  "heatingFuel": HeatingFuel;
+  /**
+   * The known geographic features and building characteristics for a given residence.
+   */
+  "buildingProfile": BuildingProfile;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "upgrade",
-            "baseName": "upgrade",
-            "type": "SupportedUpgrade"
-        },
-        {
-            "name": "heatingFuel",
-            "baseName": "heating_fuel",
-            "type": "HeatingFuel"
-        },
-        {
-            "name": "buildingProfile",
-            "baseName": "building_profile",
-            "type": "BuildingProfile"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "upgrade",
+      baseName: "upgrade",
+      type: "SupportedUpgrade",
+    },
+    {
+      name: "heatingFuel",
+      baseName: "heating_fuel",
+      type: "HeatingFuel",
+    },
+    {
+      name: "buildingProfile",
+      baseName: "building_profile",
+      type: "BuildingProfile",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return RemProfileRequest.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return RemProfileRequest.attributeTypeMap;
+  }
 }
 
-export namespace RemProfileRequest {
-}
+export namespace RemProfileRequest {}

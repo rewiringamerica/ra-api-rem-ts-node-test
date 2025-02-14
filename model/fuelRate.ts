@@ -10,45 +10,48 @@
  * Do not edit the class manually.
  */
 
-
 /**
-* Represents a `Quantity` with the addition of a rate type.
-*/
+ * Represents a `Quantity` with the addition of a rate type.
+ */
 export class FuelRate {
-    /**
-    * The numerical value.
-    */
-    'value'?: number = 0.0;
-    /**
-    * The unit.
-    */
-    'unit': string;
-    /**
-    * The type of rate. Values can be \'fixed\' or \'volumetric\'.
-    */
-    'rateType'?: string = 'volumetric';
+  /**
+   * The numerical value.
+   */
+  "value"?: number = 0.0;
+  /**
+   * The unit.
+   */
+  "unit": string;
+  /**
+   * The type of rate. Values can be \'fixed\' or \'volumetric\'.
+   */
+  "rateType"?: string = "volumetric";
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "value",
-            "baseName": "value",
-            "type": "number"
-        },
-        {
-            "name": "unit",
-            "baseName": "unit",
-            "type": "string"
-        },
-        {
-            "name": "rateType",
-            "baseName": "rate_type",
-            "type": "string"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "value",
+      baseName: "value",
+      type: "number",
+    },
+    {
+      name: "unit",
+      baseName: "unit",
+      type: "string",
+    },
+    {
+      name: "rateType",
+      baseName: "rate_type",
+      type: "string",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return FuelRate.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return FuelRate.attributeTypeMap;
+  }
 }
-

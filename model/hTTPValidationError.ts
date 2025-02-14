@@ -10,22 +10,26 @@
  * Do not edit the class manually.
  */
 
-import { ValidationError } from './validationError';
+import { ValidationError } from "./validationError";
 
 export class HTTPValidationError {
-    'detail'?: Array<ValidationError>;
+  "detail"?: Array<ValidationError>;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "detail",
-            "baseName": "detail",
-            "type": "Array<ValidationError>"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "detail",
+      baseName: "detail",
+      type: "Array<ValidationError>",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return HTTPValidationError.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return HTTPValidationError.attributeTypeMap;
+  }
 }
-

@@ -10,16 +10,16 @@
  * Do not edit the class manually.
  */
 
-
 export class ValidationErrorLocInner {
+  static discriminator: string | undefined = undefined;
 
-    static discriminator: string | undefined = undefined;
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [];
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return ValidationErrorLocInner.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return ValidationErrorLocInner.attributeTypeMap;
+  }
 }
-

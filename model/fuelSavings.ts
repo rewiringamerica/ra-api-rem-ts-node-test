@@ -10,46 +10,50 @@
  * Do not edit the class manually.
  */
 
-import { ImpactMetric } from './impactMetric';
+import { ImpactMetric } from "./impactMetric";
 
 /**
-* A class to represent baseline, upgrade and savings data for a particular fuel.
-*/
+ * A class to represent baseline, upgrade and savings data for a particular fuel.
+ */
 export class FuelSavings {
-    /**
-    * The estimates under the baseline scenario.
-    */
-    'baseline': ImpactMetric;
-    /**
-    * The estimates under the upgrade scenario if passed.
-    */
-    'upgrade'?: ImpactMetric;
-    /**
-    * The savings estimates (difference between baseline and upgrade) under the upgrade scenario if passed.
-    */
-    'delta'?: ImpactMetric;
+  /**
+   * The estimates under the baseline scenario.
+   */
+  "baseline": ImpactMetric;
+  /**
+   * The estimates under the upgrade scenario if passed.
+   */
+  "upgrade"?: ImpactMetric;
+  /**
+   * The savings estimates (difference between baseline and upgrade) under the upgrade scenario if passed.
+   */
+  "delta"?: ImpactMetric;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "baseline",
-            "baseName": "baseline",
-            "type": "ImpactMetric"
-        },
-        {
-            "name": "upgrade",
-            "baseName": "upgrade",
-            "type": "ImpactMetric"
-        },
-        {
-            "name": "delta",
-            "baseName": "delta",
-            "type": "ImpactMetric"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "baseline",
+      baseName: "baseline",
+      type: "ImpactMetric",
+    },
+    {
+      name: "upgrade",
+      baseName: "upgrade",
+      type: "ImpactMetric",
+    },
+    {
+      name: "delta",
+      baseName: "delta",
+      type: "ImpactMetric",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return FuelSavings.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return FuelSavings.attributeTypeMap;
+  }
 }
-

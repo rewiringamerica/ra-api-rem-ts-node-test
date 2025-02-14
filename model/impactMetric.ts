@@ -10,46 +10,50 @@
  * Do not edit the class manually.
  */
 
-import { MetricStatistics } from './metricStatistics';
+import { MetricStatistics } from "./metricStatistics";
 
 /**
-* Represents a collection of impacts associated with a fuel.
-*/
+ * Represents a collection of impacts associated with a fuel.
+ */
 export class ImpactMetric {
-    /**
-    * The energy consumed for the given fuel.
-    */
-    'energy': MetricStatistics;
-    /**
-    * The emissions produced by the given fuel.
-    */
-    'emissions': MetricStatistics;
-    /**
-    * The cost of consumed the given fuel.
-    */
-    'cost': MetricStatistics;
+  /**
+   * The energy consumed for the given fuel.
+   */
+  "energy": MetricStatistics;
+  /**
+   * The emissions produced by the given fuel.
+   */
+  "emissions": MetricStatistics;
+  /**
+   * The cost of consumed the given fuel.
+   */
+  "cost": MetricStatistics;
 
-    static discriminator: string | undefined = undefined;
+  static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "energy",
-            "baseName": "energy",
-            "type": "MetricStatistics"
-        },
-        {
-            "name": "emissions",
-            "baseName": "emissions",
-            "type": "MetricStatistics"
-        },
-        {
-            "name": "cost",
-            "baseName": "cost",
-            "type": "MetricStatistics"
-        }    ];
+  static attributeTypeMap: Array<{
+    name: string;
+    baseName: string;
+    type: string;
+  }> = [
+    {
+      name: "energy",
+      baseName: "energy",
+      type: "MetricStatistics",
+    },
+    {
+      name: "emissions",
+      baseName: "emissions",
+      type: "MetricStatistics",
+    },
+    {
+      name: "cost",
+      baseName: "cost",
+      type: "MetricStatistics",
+    },
+  ];
 
-    static getAttributeTypeMap() {
-        return ImpactMetric.attributeTypeMap;
-    }
+  static getAttributeTypeMap() {
+    return ImpactMetric.attributeTypeMap;
+  }
 }
-

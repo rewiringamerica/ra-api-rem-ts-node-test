@@ -10,14 +10,13 @@
  * Do not edit the class manually.
  */
 
-
 /**
-* Any heating fuel, plus \\\"total\\\".
-*/
+ * Any heating fuel, plus \\\"total\\\".
+ */
 export enum ResultFuelType {
-    Electricity = <any> 'electricity',
-    FuelOil = <any> 'fuel_oil',
-    NaturalGas = <any> 'natural_gas',
-    Propane = <any> 'propane',
-    Total = <any> 'total'
+  Electricity = <any>"electricity",
+  FuelOil = <any>"fuel_oil",
+  NaturalGas = <any>"natural_gas",
+  Propane = <any>"propane",
+  Total = <any>"total",
 }
