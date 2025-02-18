@@ -45,16 +45,7 @@ import { ValidationError } from "./validationError";
 import { ValidationErrorLocInner } from "./validationErrorLocInner";
 
 /* tslint:disable:no-unused-variable */
-let primitives = [
-  "string",
-  "boolean",
-  "double",
-  "integer",
-  "long",
-  "float",
-  "number",
-  "any",
-];
+let primitives = ["string", "boolean", "double", "integer", "long", "float", "number", "any"];
 
 let enumsMap: { [index: string]: any } = {
   HeatingFuel: HeatingFuel,
@@ -84,10 +75,7 @@ function startsWith(str: string, match: string): boolean {
 
 // Check if a string ends with another string without using es6 features
 function endsWith(str: string, match: string): boolean {
-  return (
-    str.length >= match.length &&
-    str.substring(str.length - match.length) === match
-  );
+  return str.length >= match.length && str.substring(str.length - match.length) === match;
 }
 
 const nullableSuffix = " | null";
@@ -178,10 +166,7 @@ export class ObjectSerializer {
       let instance: { [index: string]: any } = {};
       for (let index = 0; index < attributeTypes.length; index++) {
         let attributeType = attributeTypes[index];
-        instance[attributeType.baseName] = ObjectSerializer.serialize(
-          data[attributeType.name],
-          attributeType.type,
-        );
+        instance[attributeType.baseName] = ObjectSerializer.serialize(data[attributeType.name], attributeType.type);
       }
       return instance;
     }
@@ -231,10 +216,7 @@ export class ObjectSerializer {
       let attributeTypes = typeMap[type].getAttributeTypeMap();
       for (let index = 0; index < attributeTypes.length; index++) {
         let attributeType = attributeTypes[index];
-        instance[attributeType.name] = ObjectSerializer.deserialize(
-          data[attributeType.baseName],
-          attributeType.type,
-        );
+        instance[attributeType.name] = ObjectSerializer.deserialize(data[attributeType.baseName], attributeType.type);
       }
       return instance;
     }
@@ -265,10 +247,7 @@ export class HttpBearerAuth implements Authentication {
 
   applyToRequest(requestOptions: localVarRequest.Options): void {
     if (requestOptions && requestOptions.headers) {
-      const accessToken =
-        typeof this.accessToken === "function"
-          ? this.accessToken()
-          : this.accessToken;
+      const accessToken = typeof this.accessToken === "function" ? this.accessToken() : this.accessToken;
       requestOptions.headers["Authorization"] = "Bearer " + accessToken;
     }
   }
@@ -285,23 +264,13 @@ export class ApiKeyAuth implements Authentication {
   applyToRequest(requestOptions: localVarRequest.Options): void {
     if (this.location == "query") {
       (<any>requestOptions.qs)[this.paramName] = this.apiKey;
-    } else if (
-      this.location == "header" &&
-      requestOptions &&
-      requestOptions.headers
-    ) {
+    } else if (this.location == "header" && requestOptions && requestOptions.headers) {
       requestOptions.headers[this.paramName] = this.apiKey;
-    } else if (
-      this.location == "cookie" &&
-      requestOptions &&
-      requestOptions.headers
-    ) {
+    } else if (this.location == "cookie" && requestOptions && requestOptions.headers) {
       if (requestOptions.headers["Cookie"]) {
-        requestOptions.headers["Cookie"] +=
-          "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
+        requestOptions.headers["Cookie"] += "; " + this.paramName + "=" + encodeURIComponent(this.apiKey);
       } else {
-        requestOptions.headers["Cookie"] =
-          this.paramName + "=" + encodeURIComponent(this.apiKey);
+        requestOptions.headers["Cookie"] = this.paramName + "=" + encodeURIComponent(this.apiKey);
       }
     }
   }
@@ -326,6 +295,4 @@ export class VoidAuth implements Authentication {
   }
 }
 
-export type Interceptor = (
-  requestOptions: localVarRequest.Options,
-) => Promise<void> | void;
+export type Interceptor = (requestOptions: localVarRequest.Options) => Promise<void> | void;

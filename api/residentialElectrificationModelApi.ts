@@ -18,12 +18,7 @@ import { RemProfileRequest } from "../model/remProfileRequest";
 import { Savings } from "../model/savings";
 import { SupportedUpgrade } from "../model/supportedUpgrade";
 
-import {
-  ObjectSerializer,
-  Authentication,
-  VoidAuth,
-  Interceptor,
-} from "../model/models";
+import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from "../model/models";
 import { HttpBearerAuth } from "../model/models";
 
 import { HttpError } from "./apis";
@@ -49,11 +44,7 @@ export class ResidentialElectrificationModelApi {
   protected interceptors: Interceptor[] = [];
 
   constructor(basePath?: string);
-  constructor(
-    basePathOrUsername: string,
-    password?: string,
-    basePath?: string,
-  ) {
+  constructor(basePathOrUsername: string, password?: string, basePath?: string) {
     if (password) {
       if (basePath) {
         this.basePath = basePath;
@@ -89,13 +80,8 @@ export class ResidentialElectrificationModelApi {
     this.authentications.default = auth;
   }
 
-  public setApiKey(
-    key: ResidentialElectrificationModelApiApiKeys,
-    value: string,
-  ) {
-    (this.authentications as any)[
-      ResidentialElectrificationModelApiApiKeys[key]
-    ].apiKey = value;
+  public setApiKey(key: ResidentialElectrificationModelApiApiKeys, value: string) {
+    (this.authentications as any)[ResidentialElectrificationModelApiApiKeys[key]].apiKey = value;
   }
 
   set accessToken(accessToken: string | (() => string)) {
@@ -121,10 +107,7 @@ export class ResidentialElectrificationModelApi {
   ): Promise<{ response: http.IncomingMessage; body: Savings }> {
     const localVarPath = this.basePath + "/api/v1/rem/address";
     let localVarQueryParameters: any = {};
-    let localVarHeaderParams: any = (<any>Object).assign(
-      {},
-      this._defaultHeaders,
-    );
+    let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
     const produces = ["application/json"];
     // give precedence to 'application/json'
     if (produces.indexOf("application/json") >= 0) {
@@ -136,44 +119,29 @@ export class ResidentialElectrificationModelApi {
 
     // verify required parameter 'upgrade' is not null or undefined
     if (upgrade === null || upgrade === undefined) {
-      throw new Error(
-        "Required parameter upgrade was null or undefined when calling getByAddress.",
-      );
+      throw new Error("Required parameter upgrade was null or undefined when calling getByAddress.");
     }
 
     // verify required parameter 'address' is not null or undefined
     if (address === null || address === undefined) {
-      throw new Error(
-        "Required parameter address was null or undefined when calling getByAddress.",
-      );
+      throw new Error("Required parameter address was null or undefined when calling getByAddress.");
     }
 
     // verify required parameter 'heatingFuel' is not null or undefined
     if (heatingFuel === null || heatingFuel === undefined) {
-      throw new Error(
-        "Required parameter heatingFuel was null or undefined when calling getByAddress.",
-      );
+      throw new Error("Required parameter heatingFuel was null or undefined when calling getByAddress.");
     }
 
     if (upgrade !== undefined) {
-      localVarQueryParameters["upgrade"] = ObjectSerializer.serialize(
-        upgrade,
-        "SupportedUpgrade",
-      );
+      localVarQueryParameters["upgrade"] = ObjectSerializer.serialize(upgrade, "SupportedUpgrade");
     }
 
     if (address !== undefined) {
-      localVarQueryParameters["address"] = ObjectSerializer.serialize(
-        address,
-        "string",
-      );
+      localVarQueryParameters["address"] = ObjectSerializer.serialize(address, "string");
     }
 
     if (heatingFuel !== undefined) {
-      localVarQueryParameters["heating_fuel"] = ObjectSerializer.serialize(
-        heatingFuel,
-        "HeatingFuel",
-      );
+      localVarQueryParameters["heating_fuel"] = ObjectSerializer.serialize(heatingFuel, "HeatingFuel");
     }
 
     (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -201,9 +169,7 @@ export class ResidentialElectrificationModelApi {
 
     let interceptorPromise = authenticationPromise;
     for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(() =>
-        interceptor(localVarRequestOptions),
-      );
+      interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
     }
 
     return interceptorPromise.then(() => {
@@ -214,26 +180,20 @@ export class ResidentialElectrificationModelApi {
           localVarRequestOptions.form = localVarFormParams;
         }
       }
-      return new Promise<{ response: http.IncomingMessage; body: Savings }>(
-        (resolve, reject) => {
-          localVarRequest(localVarRequestOptions, (error, response, body) => {
-            if (error) {
-              reject(error);
+      return new Promise<{ response: http.IncomingMessage; body: Savings }>((resolve, reject) => {
+        localVarRequest(localVarRequestOptions, (error, response, body) => {
+          if (error) {
+            reject(error);
+          } else {
+            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+              body = ObjectSerializer.deserialize(body, "Savings");
+              resolve({ response: response, body: body });
             } else {
-              if (
-                response.statusCode &&
-                response.statusCode >= 200 &&
-                response.statusCode <= 299
-              ) {
-                body = ObjectSerializer.deserialize(body, "Savings");
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.statusCode));
-              }
+              reject(new HttpError(response, body, response.statusCode));
             }
-          });
-        },
-      );
+          }
+        });
+      });
     });
   }
   /**
@@ -247,10 +207,7 @@ export class ResidentialElectrificationModelApi {
   ): Promise<{ response: http.IncomingMessage; body: Savings }> {
     const localVarPath = this.basePath + "/api/v1/rem/profile";
     let localVarQueryParameters: any = {};
-    let localVarHeaderParams: any = (<any>Object).assign(
-      {},
-      this._defaultHeaders,
-    );
+    let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
     const produces = ["application/json"];
     // give precedence to 'application/json'
     if (produces.indexOf("application/json") >= 0) {
@@ -262,9 +219,7 @@ export class ResidentialElectrificationModelApi {
 
     // verify required parameter 'remProfileRequest' is not null or undefined
     if (remProfileRequest === null || remProfileRequest === undefined) {
-      throw new Error(
-        "Required parameter remProfileRequest was null or undefined when calling getByProfile.",
-      );
+      throw new Error("Required parameter remProfileRequest was null or undefined when calling getByProfile.");
     }
 
     (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -293,9 +248,7 @@ export class ResidentialElectrificationModelApi {
 
     let interceptorPromise = authenticationPromise;
     for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(() =>
-        interceptor(localVarRequestOptions),
-      );
+      interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
     }
 
     return interceptorPromise.then(() => {
@@ -306,26 +259,20 @@ export class ResidentialElectrificationModelApi {
           localVarRequestOptions.form = localVarFormParams;
         }
       }
-      return new Promise<{ response: http.IncomingMessage; body: Savings }>(
-        (resolve, reject) => {
-          localVarRequest(localVarRequestOptions, (error, response, body) => {
-            if (error) {
-              reject(error);
+      return new Promise<{ response: http.IncomingMessage; body: Savings }>((resolve, reject) => {
+        localVarRequest(localVarRequestOptions, (error, response, body) => {
+          if (error) {
+            reject(error);
+          } else {
+            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+              body = ObjectSerializer.deserialize(body, "Savings");
+              resolve({ response: response, body: body });
             } else {
-              if (
-                response.statusCode &&
-                response.statusCode >= 200 &&
-                response.statusCode <= 299
-              ) {
-                body = ObjectSerializer.deserialize(body, "Savings");
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.statusCode));
-              }
+              reject(new HttpError(response, body, response.statusCode));
             }
-          });
-        },
-      );
+          }
+        });
+      });
     });
   }
   /**
@@ -337,10 +284,7 @@ export class ResidentialElectrificationModelApi {
   ): Promise<{ response: http.IncomingMessage; body: string }> {
     const localVarPath = this.basePath + "/api/v1/rem/server_version";
     let localVarQueryParameters: any = {};
-    let localVarHeaderParams: any = (<any>Object).assign(
-      {},
-      this._defaultHeaders,
-    );
+    let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
     const produces = ["application/json"];
     // give precedence to 'application/json'
     if (produces.indexOf("application/json") >= 0) {
@@ -375,9 +319,7 @@ export class ResidentialElectrificationModelApi {
 
     let interceptorPromise = authenticationPromise;
     for (const interceptor of this.interceptors) {
-      interceptorPromise = interceptorPromise.then(() =>
-        interceptor(localVarRequestOptions),
-      );
+      interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
     }
 
     return interceptorPromise.then(() => {
@@ -388,26 +330,20 @@ export class ResidentialElectrificationModelApi {
           localVarRequestOptions.form = localVarFormParams;
         }
       }
-      return new Promise<{ response: http.IncomingMessage; body: string }>(
-        (resolve, reject) => {
-          localVarRequest(localVarRequestOptions, (error, response, body) => {
-            if (error) {
-              reject(error);
+      return new Promise<{ response: http.IncomingMessage; body: string }>((resolve, reject) => {
+        localVarRequest(localVarRequestOptions, (error, response, body) => {
+          if (error) {
+            reject(error);
+          } else {
+            if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+              body = ObjectSerializer.deserialize(body, "string");
+              resolve({ response: response, body: body });
             } else {
-              if (
-                response.statusCode &&
-                response.statusCode >= 200 &&
-                response.statusCode <= 299
-              ) {
-                body = ObjectSerializer.deserialize(body, "string");
-                resolve({ response: response, body: body });
-              } else {
-                reject(new HttpError(response, body, response.statusCode));
-              }
+              reject(new HttpError(response, body, response.statusCode));
             }
-          });
-        },
-      );
+          }
+        });
+      });
     });
   }
 }
